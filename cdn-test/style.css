@@ -1,0 +1,35 @@
+* {
+    font-family: Arial;
+    font-weight: 500;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+#app {
+    padding-top: 15vh;
+}
+
+#app img {
+    border-radius: 50%;
+    /* border: 3px solid black; */
+}
+
+.male {
+    border: 3px solid blue;
+    background-color: blue;
+    color: white
+}
+
+.female {
+    border: 3px solid pink;
+    background-color: pink;
+}
+
+.male,
+.female {
+    padding: 5px
+}
