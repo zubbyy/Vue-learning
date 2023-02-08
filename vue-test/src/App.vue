@@ -1,8 +1,9 @@
+<!-- https://youtu.be/qZXt1Aom3Cs?t=3796 -->
 <template>
   <div class="container">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <Header />
-    <Tasks @delete-task="deleteTask" :tasks="tasks"/>
+    <Header title="Luca"/>
+    <AddTask @add-task="addTask"/>
+    <Tasks @toggle-reminder="toggleReminder" @delete-task="deleteTask" :tasks="tasks"/>
   </div>
    
 </template>
@@ -11,12 +12,14 @@
 
 import Header from "./components/Header.vue"
 import Tasks from "./components/Tasks.vue"
+import AddTask from "./components/AddTask.vue"
 
 export default {
   name: 'App',
   components: {
     Header,
     Tasks,
+    AddTask,
   },
   data() {
     return {
@@ -24,11 +27,33 @@ export default {
     }
   },
   methods: {
+    addTask(task){
+      this.tasks.push(task);
+      
+
+      // opppure
+      // this.tasks = [...this.tasks, task]
+    },
     deleteTask(id){
       if(confirm("are you sure?")){
         this.tasks = this.tasks.filter((task) => task.id !== id)
       }
-    }
+    },
+    toggleReminder(id){
+      // alert(id)
+
+
+
+      // aggiorna l'array
+      // per ogni task, controlla se l'id è uguale a quello passato
+      // se lo è, ritorna un array di oggetti dove abbiamo la prima proprietà e poi invertiamo il valore del reminder
+      this.tasks = this.tasks.map(
+        (task) => task.id === id ? 
+        {...task, reminder: !task.reminder} 
+        :task
+        )
+    },
+    
   },
   created(){
     this.tasks = [

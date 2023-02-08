@@ -1,6 +1,6 @@
 <template>
     <header>
-        <h1>Ciao {{ title }}</h1>
+        <h1>Ciao {{ title }}!</h1>
         <!-- <h1>{{ name }}</h1> metodo 1 per usare i props in un component di vue -->
         <Button color="red" text="New"/>
         <Button  text="Update"/>
